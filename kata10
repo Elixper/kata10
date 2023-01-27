@@ -1,0 +1,14 @@
+var countBits = function (n) {
+
+console.log(n.toString(2).split("1").length-1)
+}
+
+countBits(0);
+countBits(4);
+countBits(7);
+countBits(9);
+countBits(10);
+
+let a = ["a","b","c","c"]
+let b = [... new Set(a)]
+return a.length===b.length
