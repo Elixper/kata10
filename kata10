@@ -12,3 +12,40 @@ countBits(10);
 let a = ["a","b","c","c"]
 let b = [... new Set(a)]
 return a.length===b.length
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+let xs=[];
+let ys=[];
+let height = 0;
+
+const N = parseInt(readline());
+for (let i = 0; i < N; i++) {
+    var inputs = readline().split(' ');
+    const X = parseInt(inputs[0]);
+    const Y = parseInt(inputs[1]);
+    xs[i]=X;
+    ys[i]=Y;
+}
+
+// Write an answer using console.log()
+xs.sort((a,b) => a - b)
+ys.sort((a,b) => a - b)
+let half = Math.floor(ys.length/2)
+if (ys.length%2===0) {
+    console.error((ys[half-1]+ys[half])/2)
+} else {
+    console.error(ys[half])
+}
+const averageHeight0 = (arr) => arr.map(el => Math.abs(ys[el]-half))
+const averageHeight = (arr) => arr.reduce((acc,val) => acc+Math.abs(val-half))
+console.error("averagemap",averageHeight0(ys).reduce((acc,val)=>acc+val))
+console.error("average",averageHeight(ys))
+let finalLength = xs[xs.length-1]-xs[0]+averageHeight0(ys).reduce((acc,val)=>acc+val)
+
+console.error(finalLength)
+// To debug: console.error('Debug messages...');
+console.error(xs,ys)
+console.log(finalLength);
